@@ -28,10 +28,10 @@ def parse_anno_tofile(anno):
     t+="\r\n"
     return t
 
-def cache_anno(annolist):
-    for i in annolist:
+def cache_anno(li):
+    for i in li:
         t = parse_anno_tofile(i)
-        with open("static/anno/"+i[0]+".txt", "w") as f:
+        with open("static/anno/"+i+".txt", "w") as f:
             f.write(t)
             f.close()
     return True
