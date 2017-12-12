@@ -1,0 +1,38 @@
+<!doctype html>
+<!--/*
+#	mpsk
+#	Beijing University of Technology
+#	Copyright 2017
+*/
+-->
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>数据标定</title>
+	<!--部署版本-->
+	<!--style type="text/css" media="screen">@import url("{{ url_for('static', filename='style.css')}}");</style>
+	<script type='text/javascript' src="{{ url_for('static', filename='guide.js')}}"></script-->
+	<script type="application/javascript">
+		document.write("<script type='text/javascript' src='" + "{{ url_for('static', filename='func.js')}}" + "?" + Math.floor(Math.random() * 1000000) + "'><" + "/script>");
+		document.write("<style type='text/css' media='screen'>@import url(" + "{{ url_for('static', filename='style.css')}}" + "?" + Math.floor(Math.random() * 1000000) + ");</style>"); 
+	</script>
+</head>
+
+<body>
+	<div class="image_holder">
+		<img src="{{ image|safe }}">
+	</div>
+	<div class="anno_holder" id="ah_1">
+		<svg id="path_holder" class="node_holder" xmlns="http://www.w3.org/2000/svg" version="1.1" width=907 height=622>
+			<defs>
+				<filter id="Gaussian_Blur">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="0.7" />
+				</filter>
+			</defs>
+			{{ anno|safe }}
+		</svg>>
+	</div>
+</body>
+
+</html>

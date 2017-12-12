@@ -1,0 +1,9 @@
+#   python pre compiled file
+*.pyc
+
+#   ignore all image files and annotations
+*.png
+*.png.txt
+
+#   ignore backup folders
+static/anno_backup
