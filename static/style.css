@@ -12,9 +12,18 @@ annotation holder
 .anno_holder
 {
     position: absolute;
-    top: 0px; left: 0px;
+    top: 60px; left: 0px;
     cursor: crosshair;
     z-index: 1001;
+}
+
+.mbutton
+{
+    position: relative;
+    float: left;
+    width: 80px; height: 30px;
+    z-index: 1003;
+    cursor: default
 }
 
 /*
@@ -23,7 +32,76 @@ image holder
 .image_holder
 {
     position: absolute;
-    top: 0px; left: 0px;
+    top: 60px; left: 0px;
     cursor: crosshair;
     z-index: 1000;
+}
+
+/*
+check bar
+*/
+.check_bar
+{
+    position: absolute;
+    top: 0px; left: 0px; width: 400px; height: 30px;
+    z-index: 1003;
+}
+.check_bar .mbutton
+{
+    background: #58af9f;
+}
+.check_bar .mbutton:hover
+{
+    background: #428375;
+}
+
+
+/*
+Point Bar
+*/
+.point_bar
+{
+    position: absolute;
+    top: 30px; left: 0px; width: 500px; height: 30px;
+    z-index: 1003;
+}
+.point_bar .mbtn_leye
+{
+    background: red;
+}
+.point_bar .mbtn_leye:hover
+{
+    background: rgb(77, 0, 0);
+}
+.point_bar .mbtn_reye
+{
+    background: rgb(0, 0, 255);
+}
+.point_bar .mbtn_reye:hover
+{
+    background: rgb(0, 0, 121);
+}
+.point_bar .mbtn_nose
+{
+    background: green;
+}
+.point_bar .mbtn_nose:hover
+{
+    background: rgb(0, 80, 0);
+}
+.point_bar .mbtn_lmth
+{
+    background: rgb(255, 255, 0);
+}
+.point_bar .mbtn_lmth:hover
+{
+    background: rgb(191, 191, 0);
+}
+.point_bar .mbtn_rmth
+{
+    background: pink;
+}
+.point_bar .mbtn_rmth:hover
+{
+    background: rgb(255, 157, 175);
 }

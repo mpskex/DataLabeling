@@ -2,6 +2,9 @@
 # -*- coding:utf-8 -*-
 import os
 
+def clear_cache():
+    os.system("rm static/anno/*.txt")
+
 
 def parse_anno_fromfile(line):
     #   split with space
@@ -30,7 +33,7 @@ def parse_anno_tofile(anno):
 
 def cache_anno(li):
     for i in li:
-        t = parse_anno_tofile(i)
+        t = parse_anno_tofile(li[i])
         with open("static/anno/"+i+".txt", "w") as f:
             f.write(t)
             f.close()
@@ -57,4 +60,4 @@ def anno_out(filename):
 
 if __name__ == '__main__':
     annolist = import_anno()
-    cache_anno(annolist)
+    clear_cache()

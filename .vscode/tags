@@ -7,28 +7,33 @@
 Flask	../Server.py	/^from flask import Flask, request, url_for, render_template, make_response$/;"	kind:namespace	line:9
 Server.py	../Server.py	1;"	kind:file	line:1
 abort	../Server.py	/^from flask import abort, redirect$/;"	kind:namespace	line:10
-anno2html	../Server.py	/^def anno2html(name):$/;"	kind:function	line:57
-anno_out	../annosplitter.py	/^def anno_out(filename):$/;"	kind:function	line:53
+anno2html	../Server.py	/^def anno2html(cords):$/;"	kind:function	line:79
+anno_out	../annosplitter.py	/^def anno_out(filename):$/;"	kind:function	line:56
 annodict	../Server.py	/^annodict = import_anno()$/;"	kind:variable	line:15
-annolist	../Server.py	/^annolist = []$/;"	kind:variable	line:35
+annolist	../Server.py	/^annolist = []$/;"	kind:variable	line:36
 annosplitter.py	../annosplitter.py	1;"	kind:file	line:1
 app	../Server.py	/^app = Flask(__name__)$/;"	kind:variable	line:14
-cache_anno	../annosplitter.py	/^def cache_anno(annolist):$/;"	kind:function	line:31
+cache_anno	../annosplitter.py	/^def cache_anno(li):$/;"	kind:function	line:34
+clear_cache	../annosplitter.py	/^def clear_cache():$/;"	kind:function	line:5
 colors	../Server.py	/^colors = ['red', 'blue', 'green', 'yellow', 'pink']$/;"	kind:variable	line:22
-current_level	../Server.py	/^current_level = 0$/;"	kind:variable	line:29
-import_anno	../annosplitter.py	/^def import_anno():$/;"	kind:function	line:39
+confirm	../Server.py	/^def confirm():$/;"	kind:function	line:56
+current_level	../Server.py	/^current_level = 0$/;"	kind:variable	line:30
+help	../Server.py	/^def help():$/;"	kind:function	line:64
+import_anno	../annosplitter.py	/^def import_anno():$/;"	kind:function	line:42
+impossible	../Server.py	/^def impossible():$/;"	kind:function	line:48
 make_response	../Server.py	/^from flask import Flask, request, url_for, render_template, make_response$/;"	kind:namespace	line:9
 math	../Server.py	/^import math$/;"	kind:namespace	line:7
-multi_level_queue	../Server.py	/^multi_level_queue = {}$/;"	kind:variable	line:41
+multi_level_queue	../Server.py	/^multi_level_queue = {}$/;"	kind:variable	line:42
+names	../Server.py	/^names = ['leye', 'reye', 'nose', 'lmth', 'rmth']$/;"	kind:variable	line:23
 os	../Server.py	/^import os$/;"	kind:namespace	line:4
 os	../annosplitter.py	/^import os$/;"	kind:namespace	line:3
-parse_anno_fromfile	../annosplitter.py	/^def parse_anno_fromfile(line):$/;"	kind:function	line:6
-parse_anno_tofile	../annosplitter.py	/^def parse_anno_tofile(anno):$/;"	kind:function	line:19
+parse_anno_fromfile	../annosplitter.py	/^def parse_anno_fromfile(line):$/;"	kind:function	line:9
+parse_anno_tofile	../annosplitter.py	/^def parse_anno_tofile(anno):$/;"	kind:function	line:22
 random	../Server.py	/^import random$/;"	kind:namespace	line:5
 redirect	../Server.py	/^from flask import abort, redirect$/;"	kind:namespace	line:10
 render_template	../Server.py	/^from flask import Flask, request, url_for, render_template, make_response$/;"	kind:namespace	line:9
 request	../Server.py	/^from flask import Flask, request, url_for, render_template, make_response$/;"	kind:namespace	line:9
-root	../Server.py	/^def root():$/;"	kind:function	line:47
+root	../Server.py	/^def root():$/;"	kind:function	line:68
 sqlite3	../Server.py	/^import sqlite3$/;"	kind:namespace	line:8
 time	../Server.py	/^import time$/;"	kind:namespace	line:6
 url_for	../Server.py	/^from flask import Flask, request, url_for, render_template, make_response$/;"	kind:namespace	line:9

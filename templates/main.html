@@ -10,9 +10,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>数据标定</title>
-	<!--部署版本-->
-	<!--style type="text/css" media="screen">@import url("{{ url_for('static', filename='style.css')}}");</style>
-	<script type='text/javascript' src="{{ url_for('static', filename='guide.js')}}"></script-->
+	<!--部署版本
+		<style type="text/css" media="screen">@import url("{{ url_for('static', filename='style.css')}}");</style>
+		<script type='text/javascript' src="{{ url_for('static', filename='guide.js')}}"></script>
+	-->
 	<script type="application/javascript">
 		document.write("<script type='text/javascript' src='" + "{{ url_for('static', filename='func.js')}}" + "?" + Math.floor(Math.random() * 1000000) + "'><" + "/script>");
 		document.write("<style type='text/css' media='screen'>@import url(" + "{{ url_for('static', filename='style.css')}}" + "?" + Math.floor(Math.random() * 1000000) + ");</style>"); 
@@ -20,18 +21,64 @@
 </head>
 
 <body>
-	<div class="image_holder">
-		<img src="{{ image|safe }}">
+	<!--Check Bar on the top of page-->
+	<div class="check_bar" id="cbar">
+		<div class="mbutton" id="mbtn_confirm">
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="buildSubmit();document.getElementById('anno_sub').submit();">提交</div>
+		</div>
+		<div class="mbutton" id="mbtn_imposible">
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="CheckInput();">不可辨</div>
+		</div>
+		<div class="mbutton" id="mbtn_pass">
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="window.location.href='/';">换一张</div>
+		</div>
+		<div class="mbutton" id="mbtn_help">
+				<div style="padding: 4px 4px 4px 20px;color:black;" onclick="window.location.href='/help';">帮助</div>
+		</div>
 	</div>
-	<div class="anno_holder" id="ah_1">
-		<svg id="path_holder" class="node_holder" xmlns="http://www.w3.org/2000/svg" version="1.1" width=907 height=622>
+
+	<!--Point Bar below check_bar-->
+	<div class="point_bar" id="pbar">
+		<div class="mbutton mbtn_leye" id="mbtn_leye">
+			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="CheckInput();">左眼</div>
+		</div>
+		<div class="mbutton mbtn_reye" id="mbtn_reye">
+			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="CheckInput();">右眼</div>
+		</div>
+		<div class="mbutton mbtn_nose" id="mbtn_nose">
+			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="CheckInput();">鼻子</div>
+		</div>
+		<div class="mbutton mbtn_lmth" id="mbtn_lmth">
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="CheckInput();">左嘴角</div>
+		</div>
+		<div class="mbutton mbtn_rmth" id="mbtn_rmth">
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="CheckInput();">右嘴角</div>
+		</div>
+	</div>
+
+	<div class="image_holder">
+		<!--Random images-->
+		<img id="ranimg" src="{{ image|safe }}">
+	</div>
+	<div class="anno_holder" id="ahldr">
+		<svg id="asvg" class="anno_svg" xmlns="http://www.w3.org/2000/svg" version="1.1">
 			<defs>
 				<filter id="Gaussian_Blur">
 					<feGaussianBlur in="SourceGraphic" stdDeviation="0.7" />
 				</filter>
 			</defs>
+			<!--Annotation Here Filled by Backend-->
 			{{ anno|safe }}
-		</svg>>
+		</svg>
+	</div>
+	<div hidden>
+		<form id="anno_sub" action="/confirm" method="post" hidden>
+			<input type="text" name="cname" id="cname" value="msg"/>
+			<input type="text" name="ctext" id="ctext" value="msg"/>
+		</form>
+		<form id="anno_impos" action="/submit_imposs" method="post" hidden>
+			<input type="text" name="iname" id="iname" value=""/>
+		</form>
 	</div>
 </body>
 
