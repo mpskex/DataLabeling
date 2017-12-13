@@ -2,6 +2,7 @@
 # -*- coding:utf-8 -*-
 
 import os
+import re
 import random
 import time
 import math
@@ -57,15 +58,24 @@ def confirm():
     if request.method == 'POST':
         a = request.form.get('cname').encode('utf-8')
         b = request.form.get('ctext').encode('utf-8')
-        buff = b.split(' ')[1:]
+        buff = b.split(' ')
         cords = []
         #   if cords length is not 10
         #   or any of it is not able to parse
+        print buff
         for i in buff:
-            if not i.isdigit():
+            if i=='':
+                print i
+                buff.remove(i)
+                continue
+            elif not re.match(r'^-?(\.\d+|\d+(\.\d+)?)', i):
+                print buff
+                print int(i)
                 abort(501)
-            else:
-                cords.append(int(i))
+        print buff
+        for i in buff:
+            cords.append(int(i))
+        print cords
         if len(cords)!=10:
             abort(502)
         #   post data may contain -1
