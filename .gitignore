@@ -10,3 +10,6 @@ static/anno_backup
 
 #   ignore backup prog file
 *.prog
+
+#   ignore result
+result.txt
