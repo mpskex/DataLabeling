@@ -15,6 +15,7 @@ var cords = new Array(
     Array(-1, -1),    //  lmth
     Array(-1, -1)     //  rmth
 );
+var names = new Array('leye', 'reye', 'nose', 'lmth', 'rmth')
 
 function setsvgHW(id) 
 {
@@ -59,7 +60,8 @@ function hotkeys(keychar)
         case 'B':
         {
             //  barely see
-            window.location.href = '';
+            document.getElementById("iname").value = document.getElementById("ranimg").src;
+            document.getElementById("anno_imposs").submit();
             return true;
         }
         case 'N':
@@ -112,7 +114,7 @@ window.onload = function ()
         var y = e.pageY || e.clientY + scrollY;
         //  得到具体点
         y = y - 60;
-        if(current_point<0 || current_point>5)
+        if(current_point<=0 || current_point>5)
         {
             alert("非法输入！");
         }
@@ -120,6 +122,10 @@ window.onload = function ()
             cords[current_point-1][0] = x;
             cords[current_point-1][1] = y;
         }
+        p = document.getElementById('svg_' + names[current_point-1]);
+        p.setAttribute('cx', x);
+        p.setAttribute('cy', y);
+
     }
     //  initiate coords
     setsvgHW("ranimg");

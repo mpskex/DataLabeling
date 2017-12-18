@@ -27,7 +27,8 @@
 			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="buildSubmit();document.getElementById('anno_sub').submit();">提交</div>
 		</div>
 		<div class="mbutton" id="mbtn_imposible">
-			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="CheckInput();">不可辨</div>
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="document.getElementById('iname').value = document.getElementById('ranimg').src;
+            document.getElementById('anno_imposs').submit();">不可辨</div>
 		</div>
 		<div class="mbutton" id="mbtn_pass">
 			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="window.location.href='/';">换一张</div>
@@ -40,19 +41,19 @@
 	<!--Point Bar below check_bar-->
 	<div class="point_bar" id="pbar">
 		<div class="mbutton mbtn_leye" id="mbtn_leye">
-			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="CheckInput();">左眼</div>
+			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="current_point=1;">左眼</div>
 		</div>
 		<div class="mbutton mbtn_reye" id="mbtn_reye">
-			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="CheckInput();">右眼</div>
+			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="current_point=2;">右眼</div>
 		</div>
 		<div class="mbutton mbtn_nose" id="mbtn_nose">
-			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="CheckInput();">鼻子</div>
+			<div style="padding: 4px 4px 4px 20px;color:white;" onclick="current_point=3;">鼻子</div>
 		</div>
 		<div class="mbutton mbtn_lmth" id="mbtn_lmth">
-			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="CheckInput();">左嘴角</div>
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="current_point=4;">左嘴角</div>
 		</div>
 		<div class="mbutton mbtn_rmth" id="mbtn_rmth">
-			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="CheckInput();">右嘴角</div>
+			<div style="padding: 4px 4px 4px 20px;color:black;" onclick="current_point=5;">右嘴角</div>
 		</div>
 	</div>
 
@@ -77,7 +78,7 @@
 			<input type="text" name="ctext" id="ctext" value="msg"/>
 		</form>
 		<form id="anno_impos" action="/submit_imposs" method="post" hidden>
-			<input type="text" name="iname" id="iname" value=""/>
+			<input type="text" name="iname" id="cname" value=""/>
 		</form>
 	</div>
 </body>

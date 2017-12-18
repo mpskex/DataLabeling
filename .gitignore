@@ -7,3 +7,6 @@
 
 #   ignore backup folders
 static/anno_backup
+
+#   ignore backup prog file
+*.prog

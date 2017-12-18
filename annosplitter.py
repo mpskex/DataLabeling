@@ -6,7 +6,7 @@ def clear_cache():
     os.system("rm static/anno/*.txt")
 
 
-def parse_anno_fromfile(line):
+def parse_anno_fromstring(line):
     #   split with space
     t = line.split(" ")
     #   get rid of the return
@@ -19,7 +19,7 @@ def parse_anno_fromfile(line):
         t[j + 1] = int(t[j + 1])
     return t
 
-def parse_anno_tofile(anno):
+def parse_anno_tostring(anno):
     #   for single annotation
     t = ""
     t += "frame/"
@@ -33,7 +33,7 @@ def parse_anno_tofile(anno):
 
 def cache_anno(li):
     for i in li:
-        t = parse_anno_tofile(li[i])
+        t = parse_anno_tostring(li[i])
         with open("static/anno/"+i+".txt", "w") as f:
             f.write(t)
             f.close()
@@ -48,7 +48,7 @@ def import_anno():
         f.close()
     #   convert list to dict
     for i in range(len(buff)):
-        t = parse_anno_fromfile(buff[i])
+        t = parse_anno_fromstring(buff[i])
         annodict[t[0]] = t
     print len(annodict), " has imported and a type of ", type(annodict), " is returned!"
     return annodict
