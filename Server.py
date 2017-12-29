@@ -11,6 +11,7 @@ from flask import Flask, request, url_for, render_template, make_response
 from flask import abort, redirect
 
 from annosplitter import *
+from concat import *
 
 app = Flask(__name__)
 annodict = import_anno()
@@ -161,7 +162,11 @@ def confirm():
         
         #   save progress
         saveprog(progbak, multi_level_queue[current_level])
-
+        if count%100==0:
+            saveprog(progbak+'-'+str(float(count)/1000)+'k', multi_level_queue[current_level])
+        #   write to pts list
+        if count%100==0:
+            concat("static/pts_list.txt", "static/anno")
         #   release the working lock
         working_files.remove(name)
 
@@ -233,4 +238,4 @@ def incomplete_argument(error):
     return render_template('error.html', resp_code='503', error_message=u'该资源正忙'), 503
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True, threaded=True, port=80)

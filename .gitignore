@@ -10,6 +10,17 @@ static/anno_backup
 
 #   ignore backup prog file
 *.prog
+*.prog.*
+*.prog-*
+
+#	DS Store
+*.DS_Store
 
 #   ignore result
-result.txt
+*.txt
+*.txt.*
+
+#	log
+*.log
+*.part
+
